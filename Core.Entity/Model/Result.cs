@@ -8,6 +8,6 @@ namespace ProjectCore.Entity.Model
         public int Code = 200;
         public string ErrorMessage { get; set; }
         public Object Data { get; set; }
-        public string ListCount { get; set; }
+        public long ListCount { get; set; }
     }
 }

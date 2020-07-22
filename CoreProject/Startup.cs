@@ -12,6 +12,10 @@ using ProjectCore.Entity.Model.ApplicationClasses;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.OpenApi.Models;
+using ProjectCore.DomainService;
+using Project.Infrastructure.Repositories;
+using ProjectCore.ApplicationService.Interfaces;
+using ProjectCore.ApplicationService.Classes;
 
 namespace CoreProject
 {
@@ -99,6 +103,10 @@ namespace CoreProject
                      IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("MySuperSecurityKey"))
                  };
              });
+
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUser, AppUser>();
+            services.AddScoped<IAuthRepository, AuthRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

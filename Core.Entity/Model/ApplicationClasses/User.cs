@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
 using Microsoft.AspNetCore.Identity;
 
 namespace ProjectCore.Entity.Model.ApplicationClasses
@@ -10,6 +11,8 @@ namespace ProjectCore.Entity.Model.ApplicationClasses
 
         public virtual string LastName { get; set; }
 
+        [NotMapped]
+        [IgnoreDataMember]
         public virtual string Password { get; set; }
 
         public virtual DateTime Birthday { get; set; }
@@ -26,6 +29,8 @@ namespace ProjectCore.Entity.Model.ApplicationClasses
 
         public virtual Status Status { get; set; }
 
-        public List<IdentityRole> Role = new List<IdentityRole>();
+        [NotMapped]
+        [IgnoreDataMember]
+        public virtual IdentityRole Role { get; set; }
     }
 }
